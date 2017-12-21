@@ -213,6 +213,7 @@
     <Content Include="Content\images\facebook.gif" />
     <Content Include="Content\images\rss.gif" />
     <Content Include="Content\images\twitter.gif" />
+    <Content Include="Content\StyleHome.css" />
     <Content Include="Scripts\galleryviewthemes\jquery.easing.1.3.js" />
     <Content Include="Scripts\galleryviewthemes\jquery.galleryview.2.1.1.min.js" />
     <Content Include="Scripts\galleryviewthemes\jquery.galleryview.setup.js" />
@@ -296,6 +297,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layot_temp.cshtml" />
+    <Content Include="Views\Shared\Layout_main.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

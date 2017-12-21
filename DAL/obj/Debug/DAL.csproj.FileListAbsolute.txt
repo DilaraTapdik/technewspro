@@ -1,0 +1,16 @@
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\DAL.dll.config
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\DAL.dll
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\DAL.pdb
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\Entity.dll
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\EntityFramework.dll
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\Entity.pdb
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\EntityFramework.xml
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\obj\Debug\DAL.dll
+C:\Users\nuuklu\Source\Repos\technewspro\DAL\obj\Debug\DAL.pdb
