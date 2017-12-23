@@ -29,5 +29,9 @@ namespace technews.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Entity.Models.Haber> Habers { get; set; }
+
+        public System.Data.Entity.DbSet<Entity.Models.Kategori> Kategoris { get; set; }
     }
 }

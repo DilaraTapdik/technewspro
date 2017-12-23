@@ -58,9 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Haber.cs" />
+    <Compile Include="Models\Kategori.cs" />
     <Compile Include="Models\Kullanici.cs" />
     <Compile Include="Models\Yorum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\KategoriViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

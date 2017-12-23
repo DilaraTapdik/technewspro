@@ -11,5 +11,6 @@ namespace BLL
     {
         public class YorumRep : BaseRepository<Yorum> { }
         public class HaberRep : BaseRepository<Haber> { }
+        public class KategoriRep : BaseRepository<Kategori> { }
     }
 }

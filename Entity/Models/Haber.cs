@@ -22,11 +22,11 @@ namespace Entity.Models
         public string Content { get; set; }
         public string ResimURL { get; set; }
         public DateTime EklemeTarihi { get; set; }
-        //[ForeignKey("Kategorisi")]
-        //public int KategoriID { get; set; }
-        //public virtual Kategori Kategorisi { get; set; }     
         public int? ToplamOy { get; set; }
-        public int GoruntulenmeSayisi { get; set; }
+        //public int GoruntulenmeSayisi { get; set; }
+        [ForeignKey("Kategorisi")]
+        public int KategoriID { get; set; }
+        public virtual List<Kategori> Kategorisi { get; set; }
         public Haber()
         {
             EklemeTarihi = DateTime.Today;
