@@ -9,21 +9,29 @@ using static BLL.Repository;
 
 namespace technews.Controllers
 {
-    public class AdminController : Controller
+    public class HaberController : Controller
     {
-        // GET: Admin
+        // GET: Haber
         public ActionResult Index()
         {
-            return View();
+            HaberRep hr = new HaberRep();
+            IEnumerable<Haber> liste = hr.GetAll().OrderBy(x => x.Title);
+            return View(liste);
+        }
+        public ActionResult Gundem()
+        {
+            HaberRep hr = new HaberRep();
+            IEnumerable<Haber> liste = hr.GetAll().OrderBy(x => x.EklemeTarihi).Take(10);
+            return View(liste);
         }
         [HttpGet]
-        //[Authorize(Roles = "admin, habermoderator")]
+        [Authorize(Roles = "admin, habermoderator")]
         public ActionResult HaberEkle()
         {
             return View();
         }
         [HttpPost]
-        //[Authorize(Roles = "admin, habermoderator")]
+        [Authorize(Roles = "admin, habermoderator")]
         [ValidateAntiForgeryToken]
         public ActionResult HaberEkle(Haber h, List<int> SecilenKategori, HttpPostedFileBase resim)
         {
@@ -60,8 +68,42 @@ namespace technews.Controllers
                 ViewBag.EklendiMi = true;
             }
             return View();
-            
+        }
 
+
+
+        [HttpGet]
+        [Authorize(Roles = "admin, habermoderator")]
+        public ActionResult Duzenle(int id)
+        {
+            HaberRep rep = new HaberRep();
+            return View(rep.GetById(id));
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin, MakaleModerator")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Duzenle(Haber h, HttpPostedFileBase HaberURL, List<int> SecilenKategori)
+        {
+            if (SecilenKategori == null || SecilenKategori.Count == 0)
+                ModelState.AddModelError(string.Empty, "Bir kategori seciniz.");
+
+            if (ModelState.IsValid)
+            {
+                HaberRep er = new HaberRep();
+
+                Haber haber = er.GetById(h.HaberID);
+
+                haber.Title = h.Title;
+                haber.Content = h.Content;
+                KategoriRep kr = new KategoriRep();
+                haber.Kategorisi = new List<Kategori>();
+                haber.Kategorisi.AddRange(kr.GetAll().Where(x => SecilenKategori.Any(a => a == x.KategoriID)).ToList());
+                
+                er.Update(haber);
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }

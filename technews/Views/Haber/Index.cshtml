@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Entity.Models.Haber>
+
+@{
+    ViewBag.Title = "Tüm Haberler";
+    Layout = "/Views/Shared/Layout_main.cshtml"; 
+    }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResimURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EklemeTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToplamOy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KategoriID)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResimURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EklemeTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToplamOy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.HaberID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.HaberID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.HaberID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

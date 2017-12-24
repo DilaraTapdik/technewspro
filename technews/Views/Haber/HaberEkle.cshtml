@@ -15,7 +15,7 @@
     <title>HaberEkle</title>
 </head>
 <body>
-    @using (Html.BeginForm("HaberEkle", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("HaberEkle", "Haber", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 

@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using technews.Models;
+using Entity.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace technews.Controllers
 {
@@ -151,11 +153,17 @@ namespace technews.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                UserStore<Kullanici> str = new UserStore<Kullanici>();
+                UserManager<Kullanici> mng = new UserManager<Kullanici>(str);
+
+                UserManager<Kullanici, string> mng2 = new UserManager<Kullanici, string>(str);
+                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                Kullanici user = new Kullanici { UserName = model.Email, Email = model.Email, AdSoyad = model.AdSoyad, DogumTarihi = model.DogumTarihi, Meslek = model.Meslek, Resim = model.Resim, WebSitesi = model.WebSitesi };
+                var result = await mng.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    SignInManager<Kullanici, string> smng = new SignInManager<Kullanici, string>(mng2, AuthenticationManager);
+                    await smng.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
