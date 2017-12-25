@@ -25,13 +25,13 @@ namespace technews.Controllers
             return View(liste);
         }
         [HttpGet]
-        [Authorize(Roles = "admin, habermoderator")]
+        [Authorize(Roles = "Admin, HaberModerator")]
         public ActionResult HaberEkle()
         {
             return View();
         }
         [HttpPost]
-        [Authorize(Roles = "admin, habermoderator")]
+        [Authorize(Roles = "Admin, HaberModerator")]
         [ValidateAntiForgeryToken]
         public ActionResult HaberEkle(Haber h, List<int> SecilenKategori, HttpPostedFileBase resim)
         {
@@ -73,7 +73,7 @@ namespace technews.Controllers
 
 
         [HttpGet]
-        [Authorize(Roles = "admin, habermoderator")]
+        [Authorize(Roles = "Admin, HaberModerator")]
         public ActionResult Duzenle(int id)
         {
             HaberRep rep = new HaberRep();
