@@ -65,38 +65,41 @@
     @***********************************************************************************@
     @RenderBody()
 
+    @*<div class="container">
+        <div class="row">
+            <div class="col-md-4">*@
+    <aside id="blog-section" class="col-lg-4 sidebar 1p30">
+        @RenderSection("GuncelHaberler", false)
+        @RenderSection("Arsivler", false)
+        @RenderSection("Kategoriler", false)
+
+        <!--=====================
+               NEWSLATTER
+        ======================-->
+        <div class="widget-sidebar">
+            <h2 class="title-widget-sidebar">// NEWSLATTER</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut .</p>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+            </div>
+            <button type="button" class="btn btn-warning">Warning</button>
+        </div>
+
+
+
+
+    </aside>
     @***********************************************************************************@
     @RenderSection("scripts", false)
     @section scripts{
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
     }
 
 
-    @*
 
-            <script>
-                 $(document).ready(function(){
-                 $('[data-toggle="tooltip"]').tooltip();
-                 });
-
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-          acc[i].onclick = function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight){
-              panel.style.maxHeight = null;
-            } else {
-              panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-          }
-        }
-            </script>
-*@
 
 </body>
 </html>
@@ -104,30 +107,3 @@
 
 @*<script src="js/jquery-3.1.1.js"></script>
     <script src="js/bootstrap.js"></script>*@
-@*
-
-    <script>
-             $(document).ready(function(){
-             $('[data-toggle="tooltip"]').tooltip();
-             });
-
-
-
-
-
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-      acc[i].onclick = function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight){
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-      }
-    }
-        </script>
-*@

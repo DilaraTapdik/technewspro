@@ -307,6 +307,9 @@
     <Content Include="Views\Haber\Duzenle.cshtml" />
     <Content Include="Views\Haber\Index.cshtml" />
     <Content Include="Views\Haber\Gundem.cshtml" />
+    <Content Include="Views\Home\GuncelHaberler.cshtml" />
+    <Content Include="Views\Home\Arsivler.cshtml" />
+    <Content Include="Views\Home\Kategoriler.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

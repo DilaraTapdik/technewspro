@@ -18,5 +18,6 @@ namespace DAL
         }
         public virtual DbSet<Yorum> Yorumlar { get; set; }
         public virtual DbSet<Haber> Haberler { get; set; }
+        public virtual DbSet<Kategori> Kategoriler { get; set; }
     }
 }

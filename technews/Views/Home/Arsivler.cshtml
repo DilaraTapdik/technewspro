@@ -1,0 +1,26 @@
+﻿@using Entity.Models
+@model IEnumerable<Haber> 
+       <!--============ARCHIVES===========-->
+<div class="widget-sidebar">
+    <h2 class="title-widget-sidebar">// ARCHIVES</h2>
+    @foreach (Haber item in Model)
+    {
+        <div class="last-post">
+            <button class="accordion">@item.EklemeTarihi</button>
+            <div class="panel">
+                <li class="recent-post">
+                    <div class="post-img">
+                        @*<img src="https://lh3.googleusercontent.com/-13DR8P0-AN4/WM1ZIz1lRNI/AAAAAAAADeo/XMfJ7CM-pQg9qfRuCgSnphzqhaj3SQg6QCJoC/w424-h318-n-rw/thumbnail4.jpg" class="img-responsive">*@
+                        <img src="@item.ResimURL" class="img-responsive" />
+                    </div>
+                    <a href="#"><h5>@item.Title</h5></a>
+                    <p><small><i class="fa fa-calendar" data-original-title="" title=""></i>@item.EklemeTarihi</small></p>
+                </li>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+        <hr>
+    }
+
+
+</div>

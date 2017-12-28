@@ -1,0 +1,14 @@
+﻿@using Entity.Models
+@model IEnumerable<Kategori> 
+
+<!--=====================
+     CATEGORIES
+======================-->
+<div class="widget-sidebar">
+    <h2 class="title-widget-sidebar">// KATEGORİLER</h2>
+    @foreach (Kategori item in Model)
+    {
+        <button class="categories-btn">@item.KategoriAdi</button>
+    }
+   
+</div>
