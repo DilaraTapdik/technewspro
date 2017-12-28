@@ -402,6 +402,12 @@ namespace technews.Controllers
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
+        [HttpGet]
+        public ActionResult Cikis()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
 
         //
         // GET: /Account/ExternalLoginFailure
