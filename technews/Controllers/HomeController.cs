@@ -13,13 +13,14 @@ namespace technews.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Haber> liste = hr.GetAll().OrderByDescending(x => x.EklemeTarihi).Take(8);
+            return View(liste);
         }
         HaberRep hr = new HaberRep();
         public PartialViewResult GuncelHaberler()
         {
             
-            IEnumerable<Haber> liste = hr.GetAll().OrderByDescending(x => x.EklemeTarihi).Take(4);
+            IEnumerable<Haber> liste = hr.GetAll().OrderByDescending(x => x.ToplamOy).Take(4);
             return PartialView(liste);
         }
 

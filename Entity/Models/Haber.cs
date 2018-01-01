@@ -23,7 +23,7 @@ namespace Entity.Models
         public string ResimURL { get; set; }
         public DateTime EklemeTarihi { get; set; }
         public int? ToplamOy { get; set; }
-        //public int GoruntulenmeSayisi { get; set; }
+        public int GoruntulenmeSayisi { get; set; }
         [ForeignKey("Kategorisi")]
         public int KategoriID { get; set; }
         public virtual List<Kategori> Kategorisi { get; set; }

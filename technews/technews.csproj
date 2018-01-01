@@ -212,6 +212,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Detay.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\images\facebook.gif" />
     <Content Include="Content\images\rss.gif" />
@@ -310,6 +311,7 @@
     <Content Include="Views\Home\GuncelHaberler.cshtml" />
     <Content Include="Views\Home\Arsivler.cshtml" />
     <Content Include="Views\Home\Kategoriler.cshtml" />
+    <Content Include="Views\Haber\Detay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

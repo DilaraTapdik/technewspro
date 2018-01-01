@@ -99,11 +99,19 @@ namespace technews.Controllers
                 KategoriRep kr = new KategoriRep();
                 haber.Kategorisi = new List<Kategori>();
                 haber.Kategorisi.AddRange(kr.GetAll().Where(x => SecilenKategori.Any(a => a == x.KategoriID)).ToList());
-                
+
                 er.Update(haber);
                 return RedirectToAction("Index");
             }
             return View();
+        }
+        public ActionResult Detay(int id)
+        {
+            ViewBag.gelen = "Haber";
+            HaberRep hr = new HaberRep();
+            Haber h = hr.GetById(id);
+            h.GoruntulenmeSayisi++;
+            return View(h);
         }
     }
 }

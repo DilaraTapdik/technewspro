@@ -37,7 +37,8 @@ namespace technews
                       "~/Content/forms.css",
                       "~/Content/layout.css",
                       "~/Content/navi.css",
-                      "~/Content/tables.css"));
+                      "~/Content/tables.css",
+                      "~/Content/Detay.css"));
 
 
         }
