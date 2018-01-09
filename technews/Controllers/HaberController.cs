@@ -113,5 +113,20 @@ namespace technews.Controllers
             h.GoruntulenmeSayisi++;
             return View(h);
         }
+
+        [Authorize(Roles = "Admin, MakaleModerator")]
+        [HttpPost]
+        public JsonResult HaberSil(int id)
+        {
+            try
+            {
+                new HaberRep().Delete(id);
+                return Json(new { success = true, message = "Silindi" });
+            }
+            catch
+            {
+                return Json(new { success = false, message = "Bir hata oluştu." });
+            }
+        }
     }
 }

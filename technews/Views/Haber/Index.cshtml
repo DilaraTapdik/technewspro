@@ -45,7 +45,18 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Content)
+                @if (item.Content.Length >300)
+                {
+                    <p class="card-text">
+                        @Html.Raw(item.Content.Substring(0, 300)) ...
+                    </p>
+                }
+                else
+                {
+                    <p class="card-text">
+                        @Html.Raw(item.Content)
+                    </p>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ResimURL)
@@ -62,7 +73,12 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.HaberID }) |
                 @Html.ActionLink("Details", "Details", new { id=item.HaberID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.HaberID })
+                @*@Html.ActionLink("Sil", "HaberSil","Haber", new { id=item.HaberID })*@
+                @*@if (User.IsInRole("Admin") || User.IsInRole("MakaleModerator"))
+                {*@
+                    <span rel="@item.HaberID" class="makalesil btn btn-danger pull-right">Sil</span>
+                                @*<a href="/Makale/Duzenle/@item.MakaleID" class="btn btn-default pull-right">Düzenle</a>*@
+                @*}*@
             </td>
         </tr>
     }
