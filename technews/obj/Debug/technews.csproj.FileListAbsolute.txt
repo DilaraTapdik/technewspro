@@ -86,6 +86,7 @@ C:\Users\nuuklu\Source\Repos\technewspro\technews\bin\Microsoft.Owin.Security.Mi
 C:\Users\nuuklu\Source\Repos\technewspro\technews\obj\Debug\technews.csprojResolveAssemblyReference.cache
 C:\Users\nuuklu\Source\Repos\technewspro\technews\obj\Debug\technews.dll
 C:\Users\nuuklu\Source\Repos\technewspro\technews\obj\Debug\technews.pdb
+C:\Users\Dilara\Desktop\technewspro\technews\obj\Debug\technews.csprojResolveAssemblyReference.cache
 C:\Users\Dilara\Desktop\technewspro\technews\bin\ApplicationInsights.config
 C:\Users\Dilara\Desktop\technewspro\technews\bin\roslyn\csc.exe
 C:\Users\Dilara\Desktop\technewspro\technews\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -171,6 +172,5 @@ C:\Users\Dilara\Desktop\technewspro\technews\bin\Microsoft.Owin.Security.OAuth.x
 C:\Users\Dilara\Desktop\technewspro\technews\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Dilara\Desktop\technewspro\technews\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Dilara\Desktop\technewspro\technews\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Dilara\Desktop\technewspro\technews\obj\Debug\technews.csprojResolveAssemblyReference.cache
 C:\Users\Dilara\Desktop\technewspro\technews\obj\Debug\technews.dll
 C:\Users\Dilara\Desktop\technewspro\technews\obj\Debug\technews.pdb

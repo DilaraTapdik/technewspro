@@ -27,6 +27,7 @@ namespace Entity.Models
         [ForeignKey("Kategorisi")]
         public int KategoriID { get; set; }
         public virtual List<Kategori> Kategorisi { get; set; }
+        public virtual List<Yorum> Yorumlar { get; set; }
         public Haber()
         {
             EklemeTarihi = DateTime.Today;

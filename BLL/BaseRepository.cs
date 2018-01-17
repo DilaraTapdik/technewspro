@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,6 +49,10 @@ namespace BLL
         {
             MyContext.db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
             MyContext.db.SaveChanges();
+        }
+        public T Find(Expression<Func<T, bool>> where)
+        {
+            return MyContext.db.Set<T>().FirstOrDefault(where);
         }
     }
 }

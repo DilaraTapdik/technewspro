@@ -25,10 +25,11 @@
                 <div><h2 class="add">Place for your add!</h2></div>
             </div>*@
 
-        <div class="col-lg-8 blogShort left">
+        <div class="col-lg-10 blogShort left">
             <div class="row">
                 <h1>@Model.Title</h1>
-                <img src="http://joern-duwe.de/aquaristik/images/skalare00.jpg" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10">
+                <img src="@Model.ResimURL" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10">
+
                 <article>
                     <p>
                         @Model.Content
@@ -41,22 +42,22 @@
             </div>
             <div>
                 <hr />
-                
+
             </div>
-            </div>
+        </div>
         @*<div class="col-lg-4 right">
-    <h3>Bu haber oylamak ister misiniz?</h3>*@
-    @*<ul class="list-inline">
-        <li><button id="1" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
-        <li><button id="2" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
-        <li><button id="3" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
-        <li><button id="4" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
-        <li><button id="5" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
-    </ul>*@
-@*</div>*@
+            <h3>Bu haber oylamak ister misiniz?</h3>*@
+        @*<ul class="list-inline">
+                <li><button id="1" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
+                <li><button id="2" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
+                <li><button id="3" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
+                <li><button id="4" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
+                <li><button id="5" class="glyphicon glyphicon-star" aria-hidden="true"></button></li>
+            </ul>*@
+        @*</div>*@
     </div>
 </div>
-<dl class="dl-horizontal row col-lg-8">
+<dl class="dl-horizontal row col-lg-8 col-md-10">
     <dt>
         @Html.DisplayNameFor(model => model.EklemeTarihi)
     </dt>
@@ -66,50 +67,85 @@
     </dd>
 
     <dt>
-        @Html.DisplayNameFor(model => model.ToplamOy)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.ToplamOy)
-    </dd>
-
-    <dt>
         @Html.DisplayNameFor(model => model.GoruntulenmeSayisi)
     </dt>
 
     <dd>
         @Html.DisplayFor(model => model.GoruntulenmeSayisi)
     </dd>
-
-    <dt>
-        @Html.DisplayNameFor(model => model.KategoriID)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.KategoriID)
-    </dd>
-
 </dl>
+<div class="comments">
+    <div class="comment-wrap">
+        <div class="photo">
+            <div class="avatar" style="background-image: url('https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg')"></div>
+        </div>
+        <div class="comment-block">
+            <form action="">
+                <textarea name="" id="yorum" cols="700" rows="2" placeholder="Add comment..."></textarea>
+            </form>
+        </div>
+        <button type="button" class="btn btn-info" id="YorumYap">Yorum Yap</button>
+    </div>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.HaberID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
-@*<script>
-       $(".glyphicon-star").click(function () {
+    @foreach (var item in Model.Yorumlar)
+    {
+        <div class="comment-wrap">
+            <div class="photo">
+                <div class="avatar"><img class="avatar" src="/Content/images/LOGO.PNG" /></div>
+            </div>
+            <div class="comment-block">
+                <p class="comment-text">@item.YorumIcerik</p>
+                <div class="bottom-comment">
+                    <div class="comment-date">@item.YorumTarihi</div>
+                    <ul class="comment-actions">
+                        <li class="complain"></li>
+                        <li class="reply"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+    <br>
+</div>
+@section scripts{
+    <script>
 
-           var oy = $(this).attr("id");
-           console.log(oy);
-           var HaberID=@Model.HaberID;
 
+       $("#YorumYap").click(function () {
+           var yorumumuz = $("#yorum").val();
            $.ajax({
+               url: "/Haber/Yorumyap/",
+               type:"POST",
+               data:{yorum:yorumumuz,
+                   "Haberid":@Model.HaberID,
 
-               url: "/Haber/HaberOy/"+HaberID,
-               data: { "oy": oy },
-               method: "POST",
-               success: function (cevap) {
-                   alert(cevap)
+                   //dataType:"json",
+                   success: function(data){
+                       alert("Yorum Kaydedildi!");
+                   }
                }
+           });
+
+       });
+
+    </script>
+}
+
+@*<script>
+           $(".glyphicon-star").click(function () {
+
+               var oy = $(this).attr("id");
+               console.log(oy);
+               var HaberID=@Model.HaberID;
+
+               $.ajax({
+
+                   url: "/Haber/HaberOy/"+HaberID,
+                   data: { "oy": oy },
+                   method: "POST",
+                   success: function (cevap) {
+                       alert(cevap)
+                   }
+               })
            })
-       })
-</script>*@
+    </script>*@

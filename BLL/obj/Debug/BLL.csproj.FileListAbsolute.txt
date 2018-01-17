@@ -16,6 +16,7 @@ C:\Users\nuuklu\Source\Repos\technewspro\BLL\bin\Debug\Microsoft.AspNet.Identity
 C:\Users\nuuklu\Source\Repos\technewspro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\nuuklu\Source\Repos\technewspro\BLL\obj\Debug\BLL.dll
 C:\Users\nuuklu\Source\Repos\technewspro\BLL\obj\Debug\BLL.pdb
+C:\Users\Dilara\Desktop\technewspro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Dilara\Desktop\technewspro\BLL\bin\Debug\BLL.dll.config
 C:\Users\Dilara\Desktop\technewspro\BLL\bin\Debug\BLL.dll
 C:\Users\Dilara\Desktop\technewspro\BLL\bin\Debug\BLL.pdb
@@ -31,6 +32,5 @@ C:\Users\Dilara\Desktop\technewspro\BLL\bin\Debug\EntityFramework.xml
 C:\Users\Dilara\Desktop\technewspro\BLL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Dilara\Desktop\technewspro\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Dilara\Desktop\technewspro\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Dilara\Desktop\technewspro\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Dilara\Desktop\technewspro\BLL\obj\Debug\BLL.dll
 C:\Users\Dilara\Desktop\technewspro\BLL\obj\Debug\BLL.pdb

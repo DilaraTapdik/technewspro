@@ -1,4 +1,4 @@
-﻿
+﻿@using Entity.Models
 @{
     Layout = null;
 }
@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="sumit kumar">
-    <title>blog</title>
+    <title>JusTechs</title>
     <link href="/Content/bootstrap.css" rel="stylesheet" type="text/css">
     @*<link href="/Content/font-awesome.min.css" rel="stylesheet" type="text/css">*@
     @*<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome-css.min.css" type="text/css">*@
@@ -19,7 +19,14 @@
 
 </head>
 <body>
-    @*@RenderBody()*@
+    @{
+        Kullanici kul = null;
+        if (Session["kullanici"] != null)
+        {
+            kul = Session["kullanici"] as Kullanici;
+        }
+
+    }
     <nav class="navbar navbar-default navbar-fixed-top navcarbox" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/Home/Index">Brand</a>
+                <a class="navbar-brand" href="/Home/Index"> <img src="~/Content/images/LOGO.PNG" /></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -38,7 +45,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="/Home/Index">Anasayfa</a></li>
-                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="/Home/Hakkımızda/">Hakkımızda</a></li>
                     @*<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -53,9 +60,37 @@
                         </li>*@
                     <li><a href="/Haber/Gundem">Gündem</a></li>
                     <li><a href="/Haber/Index">Tüm Haberler</a></li>
-                    <li><a href="/Account/Login">Giriş</a></li>
-                    <li><a href="#">Üye Ol</a></li>
+                    @if (kul == null)
+                    {
+                    <li>
+                        <a href="/Home/Giris">
+                            <span class="glyphicon glyphicon-log-in"></span> Giriş
+                        </a>
+                    </li>
+                        <li>
+                            <a href="/Home/KayitOl">
+                                <span class="glyphicon glyphicon-user"></span> Üye Ol
+                            </a>
+                        </li>}
+                    else
+                    {
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-user"></span> @kul.KullaniciAdi
+                            </a>
+                        </li>
 
+
+                        <li>
+                            <a href="/Home/Cikis">
+                                <span class="glyphicon glyphicon-log-out"></span> Çıkış
+                            </a>
+                        </li>
+                    }
+                    @if (Session["kullanici"] != null && kul.AdminMi)
+                    {
+                        <li><a href="/Haber/HaberEkle/">HaberEkle</a></li>
+                    }
 
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -68,15 +103,15 @@
     @*<div class="container">
         <div class="row">
             <div class="col-md-4">*@
-    <aside id="blog-section" class="col-lg-4 sidebar 1p30">
-        @RenderSection("GuncelHaberler", false)
-        @RenderSection("Arsivler", false)
-        @RenderSection("Kategoriler", false)
+    @*<aside id="blog-section" class="col-lg-4 sidebar 1p30">*@
+    @RenderSection("GuncelHaberler", false)
+    @RenderSection("Arsivler", false)
+    @RenderSection("Kategoriler", false)
 
-        <!--=====================
+    @*=====================
                NEWSLATTER
-        ======================-->
-        <div class="widget-sidebar">
+        ======================
+        @*<div class="widget-sidebar">
             <h2 class="title-widget-sidebar">// NEWSLATTER</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut .</p>
             <div class="input-group">
@@ -84,12 +119,12 @@
                 <input id="email" type="text" class="form-control" name="email" placeholder="Email">
             </div>
             <button type="button" class="btn btn-warning">Warning</button>
-        </div>
+        </div>*@
 
 
 
 
-    </aside>
+    @*</aside>*@
     @***********************************************************************************@
     @RenderSection("scripts", false)
     @section scripts{

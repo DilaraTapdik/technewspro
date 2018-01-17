@@ -2,8 +2,9 @@
 
 @{
     ViewBag.Title = "Tüm Haberler";
-    Layout = "/Views/Shared/Layout_main.cshtml"; 
-    }
+    Layout = "/Views/Shared/Layout_main.cshtml";
+ 
+}
 
 <!DOCTYPE html>
 
@@ -13,76 +14,54 @@
     <title>Index</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ResimURL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EklemeTarihi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ToplamOy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KategoriID)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @if (item.Content.Length >300)
+    <div class="col-md-12 gap10"></div>
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-10 blogShort">
+            <h1>@Html.ActionLink(item.Title, "Detay", new { id = item.HaberID })</h1>
+            <img src="@item.ResimURL" alt="post img" class="col-lg-2 col-md-2 pull-left img-responsive thumb margin10 img-thumbnail">
+            <article>
+                @if (item.Content.Length > 300)
                 {
-                    <p class="card-text">
+                    <p class="col-lg-8 col-md-8 card-text">
                         @Html.Raw(item.Content.Substring(0, 300)) ...
                     </p>
                 }
                 else
                 {
-                    <p class="card-text">
+                    <p class="col-lg-8 col-md-8 card-text">
                         @Html.Raw(item.Content)
                     </p>
                 }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ResimURL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EklemeTarihi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ToplamOy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KategoriID)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.HaberID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.HaberID }) |
-                @*@Html.ActionLink("Sil", "HaberSil","Haber", new { id=item.HaberID })*@
-                @*@if (User.IsInRole("Admin") || User.IsInRole("MakaleModerator"))
-                {*@
-                    <span rel="@item.HaberID" class="makalesil btn btn-danger pull-right">Sil</span>
-                                @*<a href="/Makale/Duzenle/@item.MakaleID" class="btn btn-default pull-right">Düzenle</a>*@
-                @*}*@
-            </td>
-        </tr>
+            </article>
+            <br />
+            @if (User.IsInRole("Admin") @*|| User.IsInRole("HaberModerator")*@)
+            {
+                <a href="/Haber/Duzenle/@item.HaberID/" class="btn btn-info pull-right">Düzenle</a>
+                <span rel="@item.HaberID" class="habersil btn btn-danger pull-right">Sil</span>
+            }
+        </div>
     }
-    
-    </table>
 </body>
 </html>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".habersil").click(function () {
+            var id = $(this).attr("rel");
+            $.ajax({
+                url: "/Haber/HaberSil/",
+                method: "POST",
+                data: { "id": id },
+                success: function (gelenVeri) {
+                    alert(gelenVeri.message);
+                    location.reload();
+                },
+                error: function () {
+                    alert("Bağlantıda hata oluştu");
+                }
+            });
+        });
+    })
+</script>

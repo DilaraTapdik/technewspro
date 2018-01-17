@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using technews.Models;
 using Entity.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using DAL;
 
 namespace technews.Controllers
 {
@@ -145,7 +146,6 @@ namespace technews.Controllers
         }
 
         //
-        // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -153,18 +153,12 @@ namespace technews.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserStore<Kullanici> str = new UserStore<Kullanici>();
-                UserManager<Kullanici> mng = new UserManager<Kullanici>(str);
-
-                UserManager<Kullanici, string> mng2 = new UserManager<Kullanici, string>(str);
-                //var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                Kullanici user = new Kullanici { UserName = model.Email, Email = model.Email, AdSoyad = model.AdSoyad, DogumTarihi = model.DogumTarihi, Meslek = model.Meslek, Resim = model.Resim, WebSitesi = model.WebSitesi };
-                var result = await mng.CreateAsync(user, model.Password);
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    SignInManager<Kullanici, string> smng = new SignInManager<Kullanici, string>(mng2, AuthenticationManager);
-                    await smng.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -175,9 +169,7 @@ namespace technews.Controllers
                 }
                 AddErrors(result);
             }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            return View();
         }
 
         //

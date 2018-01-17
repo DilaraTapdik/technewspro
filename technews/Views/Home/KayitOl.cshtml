@@ -1,0 +1,66 @@
+﻿@using Entity.ViewModels
+@model KayıtView
+@{
+    ViewBag.Title = "Kayıt Sayfası";
+}
+
+<style>
+    fieldset {
+        padding-top: 30px;
+    }
+</style>
+
+
+
+
+<link href="~/Content/girisi-kayit.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <form accept-charset="UTF-8" role="form">
+                            @Html.ValidationSummary(false)
+                            <fieldset>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.Ad, new { @class = "form-control", placeholder = "Adınız:" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.Soyad, new { @class = "form-control", placeholder = "Soyadınız:" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.KullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı adınız:" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.Sifre, new { @class = "form-control", placeholder = "Şifreniz:", type = "password" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email adresiniz:", })
+                                </div>
+
+                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Kayıt">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+<script>
+    $(function(){
+        $("footer").hide();
+    });
+
+</script>

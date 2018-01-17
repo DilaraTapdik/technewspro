@@ -6,9 +6,10 @@
 ======================-->
 <div class="widget-sidebar">
     <h2 class="title-widget-sidebar">// KATEGORİLER</h2>
-    @foreach (Kategori item in Model)
-    {
-        <button class="categories-btn">@item.KategoriAdi</button>
-    }
+        @foreach (Kategori item in Model)
+        {
+           <a class="btn categories-btn" href="/Haber/KategoriHaber/@item.KategoriID">@item.KategoriAdi</a>
+               <br />
+        }
    
 </div>

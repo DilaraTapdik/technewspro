@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-   public class MyContext : IdentityDbContext<Kullanici>
+   public class MyContext : IdentityDbContext<IdentityUser>
     {
         public static MyContext db;
         public MyContext() : base("DefaultConnection")
@@ -19,5 +19,7 @@ namespace DAL
         public virtual DbSet<Yorum> Yorumlar { get; set; }
         public virtual DbSet<Haber> Haberler { get; set; }
         public virtual DbSet<Kategori> Kategoriler { get; set; }
+        public virtual DbSet<Kullanici> Kullanicilar { get; set; }
+
     }
 }

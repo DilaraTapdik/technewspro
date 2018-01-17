@@ -33,5 +33,7 @@ namespace technews.Models
         public System.Data.Entity.DbSet<Entity.Models.Haber> Habers { get; set; }
 
         public System.Data.Entity.DbSet<Entity.Models.Kategori> Kategoris { get; set; }
+
+        public System.Data.Entity.DbSet<Entity.Models.Yorum> Yorums { get; set; }
     }
 }

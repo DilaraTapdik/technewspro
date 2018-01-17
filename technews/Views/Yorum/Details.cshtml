@@ -1,0 +1,66 @@
+﻿@model Entity.Models.Yorum
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Yorum</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Haberi.Title)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Haberi.Title)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.KullaniciAd)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.KullaniciAd)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.YorumIcerik)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.YorumIcerik)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.YorumBegeni)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.YorumBegeni)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.YorumTarihi)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.YorumTarihi)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.YorumID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

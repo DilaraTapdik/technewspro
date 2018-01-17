@@ -1,0 +1,54 @@
+﻿@using Entity.ViewModels
+@model GirisView
+@{
+    Layout = "/Views/Shared/Layout_main.cshtml";
+     ViewBag.Title = "Giris Sayfası";
+}
+<link href="~/Content/girisi-kayit.css" rel="stylesheet" />
+
+<body>
+    <style>
+        fieldset {
+            padding-top: 100px;
+        }
+    </style>
+   
+        <div class="container">
+            <div class="row">
+@using (Html.BeginForm())
+{
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+                            <form accept-charset="UTF-8" role="form">
+                                @Html.ValidationSummary(false)
+                                <fieldset>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(model => model.KullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı adınız:" })
+
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(model => model.Sifre, new { @class = "form-control", placeholder = "Şifreniz:", type = "password" })
+                                    </div>
+
+                                    <input class="btn btn-lg btn-success btn-block" type="submit" value="Giris">
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+   
+
+</body>
+
+
+<script>
+    $(function(){
+        $("footer").hide();
+    });
+
+</script>

@@ -198,8 +198,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HaberController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KullaniciController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
+    <Compile Include="Controllers\YorumController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -214,10 +216,16 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Detay.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\giris-kayit.css" />
+    <Content Include="Content\images\Hakkında.PNG" />
     <Content Include="Content\images\facebook.gif" />
+    <Content Include="Content\images\LOGO.PNG" />
     <Content Include="Content\images\rss.gif" />
     <Content Include="Content\images\twitter.gif" />
+    <Content Include="Content\slider.css" />
     <Content Include="Content\StyleHome.css" />
+    <Content Include="Content\Upload\650px-Kepler-90_system_rightward-PIA22193.jpg87102.jpg" />
+    <Content Include="Content\Upload\otonomaraba.jpg55110.jpg" />
     <Content Include="Scripts\galleryviewthemes\jquery.easing.1.3.js" />
     <Content Include="Scripts\galleryviewthemes\jquery.galleryview.2.1.1.min.js" />
     <Content Include="Scripts\galleryviewthemes\jquery.galleryview.setup.js" />
@@ -265,6 +273,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\slider.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -312,11 +321,21 @@
     <Content Include="Views\Home\Arsivler.cshtml" />
     <Content Include="Views\Home\Kategoriler.cshtml" />
     <Content Include="Views\Haber\Detay.cshtml" />
+    <Content Include="Views\Haber\KategoriHaber.cshtml" />
+    <Content Include="Views\Home\Slider.cshtml" />
+    <Content Include="Views\Home\Hakkımızda.cshtml" />
+    <Content Include="Views\Home\Giris.cshtml" />
+    <Content Include="Views\Home\KayitOl.cshtml" />
+    <Content Include="Views\Yorum\Create.cshtml" />
+    <Content Include="Views\Yorum\Delete.cshtml" />
+    <Content Include="Views\Yorum\Details.cshtml" />
+    <Content Include="Views\Yorum\Edit.cshtml" />
+    <Content Include="Views\Yorum\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Upload\" />
     <Folder Include="images\" />
+    <Folder Include="Views\Kullanici\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

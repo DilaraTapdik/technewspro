@@ -3,68 +3,15 @@
 
 @{
     ViewBag.Title = "Anasayfa";
+    
+}
+@{
+    Html.RenderAction("Slider");
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <!-- Carousel -->
 
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            </ol>
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="https://images.pexels.com/photos/238211/pexels-photo-238211.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Second slide">
-                    <!-- Static Header -->
-                    <div class="header-text text-center hidden-xs">
-                        <div class="main_title ">
-                            <h2>Paris <span>Top</span> Tours</h2>
-                            <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
-                        </div>  <div class="">
-                            <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block" href="#">Register</a>
-                        </div>
-                    </div><!-- /header-text -->
-                </div>
-                <div class="item">
-                    <img src="https://images.pexels.com/photos/193791/pexels-photo-193791.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Second slide">
-                    <!-- Static Header -->
-                    <div class="header-text text-center hidden-xs">
-                        <div class="main_title ">
-                            <h2>Paris <span>Top</span> Tours</h2>
-                            <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
-                        </div>  <div class="">
-                            <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block" href="#">Register</a>
-                        </div>
-                    </div><!-- /header-text -->
-                </div>
-                <div class="item">
-                    <img src="https://images.pexels.com/photos/167676/pexels-photo-167676.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" alt="Second slide">
-                    <!-- Static Header -->
-                    <div class="header-text text-center hidden-xs">
-                        <div class="main_title ">
-                            <h2>Paris <span>Top</span> Tours</h2>
-                            <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
-                        </div>  <div class="">
-                            <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block" href="#">Register</a>
-                        </div>
-                    </div><!-- /header-text -->
-                </div>
-            </div>
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-        </div><!-- /carousel -->
-    </div>
-</div>
+
+
 
 @************************************************@
 
@@ -75,42 +22,42 @@
                 <div class="row">
                     @foreach (Haber item in Model)
                     {
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-6 col-md6">
                             <aside>
                                 @*<img src="https://lh3.googleusercontent.com/-ndZJOGgvYQ4/WM1ZI8dH86I/AAAAAAAADeo/l67ZqZnRUO8QXIQi38bEXuxqHfVX0TV2gCJoC/w424-h318-n-rw/thumbnail8.jpg" class="img-responsive">*@
                                 <img src="@item.ResimURL" class="img-responsive">
                                 <div class="content-title">
                                     <div class="text-center">
                                         <h3><a href="/Haber/Detay/@item.HaberID">@item.Title</a></h3>
-                                     
+
                                     </div>
                                 </div>
                                 <div class="content-footer">
                                     @*<img class="user-small-img" src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg">
-                                    <span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
-                                    <span class="pull-right">
-                                        <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments"></i>30</a>
-                                        <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>
-                                    </span>*@
+                                        <span style="font-size: 16px;color: #fff;">Sumit Kumar</span>
+                                        <span class="pull-right">
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments"></i>30</a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>
+                                        </span>*@
                                     @*<div class="user-ditels">
-                                        <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive"></div>
-                                        <span class="user-full-ditels">
-                                            <h3>Sumit Kumar</h3>
-                                            <p>Web & Graphics Disigner</p>
-                                        </span>
-                                        <div class="social-icon">
-                                            <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
-                                            <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
-                                            <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
-                                            <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>
-                                        </div>
-                                    </div>*@
+                                            <div class="user-img"><img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive"></div>
+                                            <span class="user-full-ditels">
+                                                <h3>Sumit Kumar</h3>
+                                                <p>Web & Graphics Disigner</p>
+                                            </span>
+                                            <div class="social-icon">
+                                                <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
+                                                <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
+                                                <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
+                                                <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
+                                                <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>
+                                            </div>
+                                        </div>*@
                                 </div>
                             </aside>
                         </div>
                     }
-                   
+
                 </div>
             </div>
             <div class="col-lg-4">
@@ -123,21 +70,22 @@
                 @{
                     Html.RenderAction("Kategoriler");
                 }
-                
+
+
             </div>
         </div>
     </div>
 </section>
+
 <script type="text/javascript">
-(function($) {
+(function ($) {
     window.addEventListener('message', receiveMessage, false);
-    function receiveMessage(evt)
-    {
+    function receiveMessage(evt) {
         if (evt.origin !== 'https://bootsnipp.com') return;
 
         if ((evt.data != undefined) && (evt.data) && (typeof evt.data === "number"))
-            if(evt.data >= 500) {
-//                $('#playground-container').css('height', evt.data+30+'px');
+            if (evt.data >= 500) {
+                //                $('#playground-container').css('height', evt.data+30+'px');
             }
     }
 
@@ -146,29 +94,28 @@
     var jseditor = ace.edit("editor-js");
     var csseditor = ace.edit("editor-css");
 
-    $('#theme_chooser').change(function(){
+    $('#theme_chooser').change(function () {
         whichCSS = $(this).val();
         document.getElementById('snippet-preview').contentWindow.changeCSS(whichCSS);
     });
 
-    function setEditorOptions(editor, type){
+    function setEditorOptions(editor, type) {
         editor.setTheme("ace/theme/clouds");
         editor.setHighlightActiveLine(false);
-//        editor.setReadOnly(true);
-        editor.getSession().setMode("ace/mode/"+type);
+        //        editor.setReadOnly(true);
+        editor.getSession().setMode("ace/mode/" + type);
     };
 
-    setEditorOptions(htmleditor,'html');
-    setEditorOptions(jseditor,'javascript');
-    setEditorOptions(csseditor,'css');
+    setEditorOptions(htmleditor, 'html');
+    setEditorOptions(jseditor, 'javascript');
+    setEditorOptions(csseditor, 'css');
 
-    function markActive(el)
-    {
-       $(el).siblings().removeClass('active');
-       $(el).addClass('active');
+    function markActive(el) {
+        $(el).siblings().removeClass('active');
+        $(el).addClass('active');
     }
 
-    $('#show-html').click(function(e){
+    $('#show-html').click(function (e) {
         e.preventDefault();
         $('#editor-html').show().siblings().hide();
         markActive(this);
@@ -176,7 +123,7 @@
         htmleditor.resize();
     });
 
-    $('#show-js').click(function(e){
+    $('#show-js').click(function (e) {
         e.preventDefault();
         $('#editor-js').show().siblings().hide();
         $('#preview-container').hide();
@@ -184,7 +131,7 @@
         jseditor.resize();
     });
 
-    $('#show-css').click(function(e){
+    $('#show-css').click(function (e) {
         e.preventDefault();
         $('#editor-css').show().siblings().hide();
         $('#preview-container').hide();
@@ -192,7 +139,7 @@
         csseditor.resize();
     });
 
-    $('#show-preview').click(function(e){
+    $('#show-preview').click(function (e) {
         e.preventDefault();
 
         markActive(this);
@@ -203,7 +150,7 @@
         var iframe = document.createElement('iframe');
 
         iframe.src = 'about:blank';
-        iframe.frameBorder="0";
+        iframe.frameBorder = "0";
         iframe.height = 496;
         iframe.className = 'preview-iframe';
 
@@ -220,26 +167,25 @@
     var cssurls = {};
     var jsurls = {};
 
-        cssurls['4.0.0'] = '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css';
+    cssurls['4.0.0'] = '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css';
     jsurls['4.0.0'] = '//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js';
-        cssurls['3.3.0'] = '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css';
+    cssurls['3.3.0'] = '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css';
     jsurls['3.3.0'] = '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js';
-        cssurls['3.2.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css';
+    cssurls['3.2.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css';
     jsurls['3.2.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js';
-        cssurls['3.1.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css';
+    cssurls['3.1.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css';
     jsurls['3.1.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js';
-        cssurls['3.0.3'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css';
+    cssurls['3.0.3'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css';
     jsurls['3.0.3'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js';
-        cssurls['3.0.1'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css';
+    cssurls['3.0.1'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css';
     jsurls['3.0.1'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js';
-        cssurls['3.0.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css';
+    cssurls['3.0.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css';
     jsurls['3.0.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js';
-        cssurls['2.3.2'] = '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css';
+    cssurls['2.3.2'] = '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css';
     jsurls['2.3.2'] = '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js';
 
 
-    function buildSource(htmleditor, jseditor, csseditor)
-    {
+    function buildSource(htmleditor, jseditor, csseditor) {
         var code = {};
         code.html = htmleditor.getValue();
         code.css = csseditor.getValue();
@@ -264,9 +210,8 @@
                             </body>\n\
                         </html>";
 
-        content = template.replace(/\|(\w+)\|/g, function(match, str)
-        {
-            if(str in code) return code[str];
+        content = template.replace(/\|(\w+)\|/g, function (match, str) {
+            if (str in code) return code[str];
             return '';
         });
 
@@ -274,9 +219,11 @@
     }
 
 
-})(jQuery);
+});
 </script>
-<script>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });

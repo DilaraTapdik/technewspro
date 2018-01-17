@@ -18,41 +18,41 @@
 
         protected override void Seed(DAL.MyContext context)
         {
-            //veritabanında roller yoksa ilk kurulumu yap
-            #region rolleriOlustur
-            if (context.Roles.Count() == 0)
-            {
-                context.Roles.Add(new IdentityRole() { Name = "Admin" });
-                context.Roles.Add(new IdentityRole() { Name = "HaberModerator" });
-          
-                context.SaveChanges();
-            }
-            #endregion
+            //        //veritabanında roller yoksa ilk kurulumu yap
+            //        #region rolleriOlustur
+            //        if (context.Roles.Count() == 0)
+            //        {
+            //            context.Roles.Add(new IdentityRole() { Name = "Admin" });
+            //            context.Roles.Add(new IdentityRole() { Name = "HaberModerator" });
 
-            if (context.Users.Count() == 0)
-            {
-                #region kullaniciEkle
-                UserStore<Kullanici> str = new UserStore<Kullanici>(new MyContext());
-                UserManager<Kullanici> mng = new UserManager<Kullanici>(str);
+            //            context.SaveChanges();
+            //        }
+            //        #endregion
 
-                var admin = new Kullanici() { Email = "admin@tech.com", UserName = "admin@tech.com", AdSoyad = "Yonetici", Meslek = "Yonetici" };
-                var habermoderator = new Kullanici() { Email = "habermoderator@tech.com", AdSoyad = "Haber Moderator", UserName = "habermoderator@tech.com" };
-               
+            //        if (context.Users.Count() == 0)
+            //        {
+            //            #region kullaniciEkle
+            //            UserStore<Kullanici> str = new UserStore<Kullanici>(new MyContext());
+            //            UserManager<Kullanici> mng = new UserManager<Kullanici>(str);
+
+            //            var admin = new Kullanici() { Email = "admin@tech.com", UserName = "admin@tech.com", AdSoyad = "Yonetici", Meslek = "Yonetici" };
+            //            var habermoderator = new Kullanici() { Email = "habermoderator@tech.com", AdSoyad = "Haber Moderator", UserName = "habermoderator@tech.com" };
 
 
-                mng.Create(admin, "Aa123456!"); //2. parametre þifresi
-                mng.Create(habermoderator, "Aa123456!");
-                context.SaveChanges();
 
-                #endregion
+            //            mng.Create(admin, "Aa123456!"); //2. parametre sifresi
+            //            mng.Create(habermoderator, "Aa123456!");
+            //            context.SaveChanges();
 
-                #region kullanicilariRollereEkle
-                mng.AddToRole(admin.Id, "Admin");
-                mng.AddToRole(habermoderator.Id, "HaberModerator");
-                context.SaveChanges();
-                #endregion
+            //            #endregion
 
-            }
+            //            #region kullanicilariRollereEkle
+            //            mng.AddToRole(admin.Id, "Admin");
+            //            mng.AddToRole(habermoderator.Id, "HaberModerator");
+            //            context.SaveChanges();
+            //            #endregion
+
+            //        }
 
         }
     }

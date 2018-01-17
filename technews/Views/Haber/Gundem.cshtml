@@ -12,71 +12,37 @@
     <title>Gundem</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ResimURL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EklemeTarihi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ToplamOy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KategoriID)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
+    <div class="col-md-12 gap10"></div>
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-10 blogShort">
+            <h1>@Html.ActionLink(item.Title, "Detay", new { id = item.HaberID })</h1>
+            <img src="@item.ResimURL" alt="post img" class="col-lg-2 col-md-2 pull-left img-responsive thumb margin10 img-thumbnail">
+            <article>
                 @if (item.Content.Length > 300)
                 {
-                    <p class="card-text">
+                    <p class="col-lg-8 col-md-8 card-text">
                         @Html.Raw(item.Content.Substring(0, 300)) ...
                     </p>
                 }
                 else
                 {
-                    <p class="card-text">
+                    <p class="col-lg-8 col-md-8 card-text">
                         @Html.Raw(item.Content)
                     </p>
                 }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ResimURL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EklemeTarihi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ToplamOy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KategoriID)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.HaberID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.HaberID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.HaberID })
-            </td>
-        </tr>
+
+            </article>
+            <a class="btn btn-blog pull-right marginBottom10" href="/Haber/Detay/@item.HaberID">Devamı için tıklayınız.</a>
+            <br />
+
+        </div>
+
+
+
     }
-    
-    </table>
+
+
 </body>
 </html>

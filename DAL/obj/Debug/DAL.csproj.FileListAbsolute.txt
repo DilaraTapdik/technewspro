@@ -14,6 +14,7 @@ C:\Users\nuuklu\Source\Repos\technewspro\DAL\bin\Debug\Microsoft.AspNet.Identity
 C:\Users\nuuklu\Source\Repos\technewspro\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\nuuklu\Source\Repos\technewspro\DAL\obj\Debug\DAL.dll
 C:\Users\nuuklu\Source\Repos\technewspro\DAL\obj\Debug\DAL.pdb
+C:\Users\Dilara\Desktop\technewspro\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Dilara\Desktop\technewspro\DAL\bin\Debug\DAL.dll.config
 C:\Users\Dilara\Desktop\technewspro\DAL\bin\Debug\DAL.dll
 C:\Users\Dilara\Desktop\technewspro\DAL\bin\Debug\DAL.pdb
@@ -27,6 +28,5 @@ C:\Users\Dilara\Desktop\technewspro\DAL\bin\Debug\EntityFramework.xml
 C:\Users\Dilara\Desktop\technewspro\DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Dilara\Desktop\technewspro\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Dilara\Desktop\technewspro\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Dilara\Desktop\technewspro\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\Dilara\Desktop\technewspro\DAL\obj\Debug\DAL.dll
 C:\Users\Dilara\Desktop\technewspro\DAL\obj\Debug\DAL.pdb

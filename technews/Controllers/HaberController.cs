@@ -1,9 +1,12 @@
-﻿using Entity.Models;
+﻿using DAL;
+using Entity.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using static BLL.Repository;
 
@@ -11,6 +14,7 @@ namespace technews.Controllers
 {
     public class HaberController : Controller
     {
+        MyContext db = new MyContext();
         // GET: Haber
         public ActionResult Index()
         {
@@ -21,9 +25,11 @@ namespace technews.Controllers
         public ActionResult Gundem()
         {
             HaberRep hr = new HaberRep();
-            IEnumerable<Haber> liste = hr.GetAll().OrderBy(x => x.EklemeTarihi).Take(10);
+            IEnumerable<Haber> liste = hr.GetAll().OrderByDescending(x => x.EklemeTarihi).Take(10);
             return View(liste);
         }
+
+
         [HttpGet]
         [Authorize(Roles = "Admin, HaberModerator")]
         public ActionResult HaberEkle()
@@ -35,6 +41,7 @@ namespace technews.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult HaberEkle(Haber h, List<int> SecilenKategori, HttpPostedFileBase resim)
         {
+
             var klasor = Server.MapPath("/Content/Upload/");
             if (resim != null && resim.ContentLength != 0)
             {
@@ -49,7 +56,7 @@ namespace technews.Controllers
                         var dosyaAdi = fi.Name + rastgele + fi.Extension;
 
                         resim.SaveAs(klasor + dosyaAdi);
-                        h.ResimURL = dosyaAdi;
+                        h.ResimURL = "/Content/Upload/" + dosyaAdi;
                     }
                     catch { }
                 }
@@ -67,7 +74,9 @@ namespace technews.Controllers
                 new HaberRep().Insert(h);
                 ViewBag.EklendiMi = true;
             }
-            return View();
+            return View(h);
+
+
         }
 
 
@@ -81,10 +90,31 @@ namespace technews.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin, MakaleModerator")]
+        [Authorize(Roles = "Admin, HaberModerator")]
         [ValidateAntiForgeryToken]
-        public ActionResult Duzenle(Haber h, HttpPostedFileBase HaberURL, List<int> SecilenKategori)
+        public ActionResult Duzenle(Haber h, HttpPostedFileBase HaberURL, List<int> SecilenKategori, HttpPostedFileBase resim)
         {
+
+            var klasor = Server.MapPath("/Content/Upload/");
+            if (resim != null && resim.ContentLength != 0)
+            {
+                if (resim.ContentLength > 2 * 1024 * 1024)
+                    ModelState.AddModelError(null, "Resim boyutu max 2MB olabilir.");
+                else
+                {
+                    try
+                    {
+                        FileInfo fi = new FileInfo(resim.FileName);
+                        var rastgele = Guid.NewGuid().ToString().Substring(0, 5);
+                        var dosyaAdi = fi.Name + rastgele + fi.Extension;
+
+                        resim.SaveAs(klasor + dosyaAdi);
+                        h.ResimURL = "/Content/Upload/" + dosyaAdi;
+                    }
+                    catch { }
+                }
+            }
+
             if (SecilenKategori == null || SecilenKategori.Count == 0)
                 ModelState.AddModelError(string.Empty, "Bir kategori seciniz.");
 
@@ -96,6 +126,7 @@ namespace technews.Controllers
 
                 haber.Title = h.Title;
                 haber.Content = h.Content;
+                haber.ResimURL = h.ResimURL;
                 KategoriRep kr = new KategoriRep();
                 haber.Kategorisi = new List<Kategori>();
                 haber.Kategorisi.AddRange(kr.GetAll().Where(x => SecilenKategori.Any(a => a == x.KategoriID)).ToList());
@@ -103,7 +134,7 @@ namespace technews.Controllers
                 er.Update(haber);
                 return RedirectToAction("Index");
             }
-            return View();
+            return View(h);
         }
         public ActionResult Detay(int id)
         {
@@ -111,6 +142,14 @@ namespace technews.Controllers
             HaberRep hr = new HaberRep();
             Haber h = hr.GetById(id);
             h.GoruntulenmeSayisi++;
+            return View(h);
+        }
+        public ActionResult KategoriHaber(int id)
+        {
+            ViewBag.gelen = "Kategori";
+            KategoriRep kr = new KategoriRep();
+            HaberRep hr = new HaberRep();
+            IEnumerable<Haber> h = hr.GetAll().Where(x => x.KategoriID == id);
             return View(h);
         }
 
@@ -127,6 +166,22 @@ namespace technews.Controllers
             {
                 return Json(new { success = false, message = "Bir hata oluştu." });
             }
+        }
+
+        [HttpPost]
+        public void YorumYap(string yorum, int Haberid)
+        {
+            Kullanici k = new Kullanici();
+            YorumRep yrep = new YorumRep();
+            var yorumyapanID = User.Identity.GetUserId();
+
+
+            //var kullanici = db.Haberler.Where(x => x..Id == yorumyapanID).FirstOrDefault();
+            var haber = db.Haberler.Where(x => x.HaberID == Haberid).FirstOrDefault();
+
+            db.Yorumlar.Add(new Yorum { /*Kullanici = kullanici.Kullanici,*/ Haberi = haber, YorumTarihi = DateTime.Now, YorumIcerik = yorum });
+            db.SaveChanges();
+            //return Json(false, JsonRequestBehavior.AllowGet);
         }
     }
 }

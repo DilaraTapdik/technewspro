@@ -13,10 +13,21 @@
                         @*<img src="https://lh3.googleusercontent.com/-13DR8P0-AN4/WM1ZIz1lRNI/AAAAAAAADeo/XMfJ7CM-pQg9qfRuCgSnphzqhaj3SQg6QCJoC/w424-h318-n-rw/thumbnail4.jpg" class="img-responsive">*@
                         <img src="@item.ResimURL" class="img-responsive" />
                     </div>
-                    <a href="#"><h5>@item.Title</h5></a>
+                    <a href="/Haber/Detay/@item.HaberID"><h5>@item.Title</h5></a>
                     <p><small><i class="fa fa-calendar" data-original-title="" title=""></i>@item.EklemeTarihi</small></p>
                 </li>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                @if (item.Content.Length > 300)
+                {
+                    <p class="card-text">
+                        @Html.Raw(item.Content.Substring(0, 300)) ...
+                    </p>
+                }
+                else
+                {
+                    <p class="card-text">
+                        @Html.Raw(item.Content)
+                    </p>
+                }
             </div>
         </div>
         <hr>

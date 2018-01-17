@@ -10,9 +10,9 @@
                 <li class="recent-post">
                     <div class="post-img">
                         @*<img src="https://lh3.googleusercontent.com/-ndZJOGgvYQ4/WM1ZI8dH86I/AAAAAAAADeo/l67ZqZnRUO8QXIQi38bEXuxqHfVX0TV2gCJoC/w424-h318-n-rw/thumbnail8.jpg" class="img-responsive">*@
-                        <img src="@item.ResimURL" class="img-responsive">
+                        <a href="/Haber/Detay/@item.HaberID"><img src="@item.ResimURL" class="img-responsive"></a>
                     </div>
-                    <a href="#"><h5>@item.Title</h5></a>
+                    <a href="/Haber/Detay/@item.HaberID"><h5>@item.Title</h5></a>
                     <p><small><i class="fa fa-calendar" data-original-title="" title=""></i>@item.EklemeTarihi</small></p>
                 </li>
             }
